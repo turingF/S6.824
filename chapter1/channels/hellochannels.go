@@ -21,7 +21,7 @@ func main() {
 	wg.Add(1)
 
 	// Send 10 integers on the channel.
-	for i := 1; i <= 10; i++ {
+	for i := 1; i <= 20; i++ {
 		c <- i
 	}
 
