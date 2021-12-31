@@ -41,7 +41,7 @@ func main() {
 	}
 	defer resp.Body.Close()
 
-	// Decode the JSON response into our struct type.
+	// Decode the JSON response into our structs type.
 	var gr gResponse
 	err = json.NewDecoder(resp.Body).Decode(&gr)
 	if err != nil {
@@ -51,7 +51,7 @@ func main() {
 
 	fmt.Println(gr)
 
-	// Marshal the struct type into a pretty print
+	// Marshal the structs type into a pretty print
 	// version of the JSON document.
 	pretty, err := json.MarshalIndent(gr, "", "    ")
 	if err != nil {

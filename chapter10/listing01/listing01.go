@@ -1,4 +1,4 @@
-// Sample program demonstrating struct composition.
+// Sample program demonstrating structs composition.
 package main
 
 import (

@@ -132,7 +132,7 @@ func (m rssMatcher) retrieve(feed *search.Feed) (*rssDocument, error) {
 		return nil, fmt.Errorf("HTTP Response Error %d\n", resp.StatusCode)
 	}
 
-	// Decode the rss feed document into our struct type.
+	// Decode the rss feed document into our structs type.
 	// We don't need to check for errors, the caller can do this.
 	var document rssDocument
 	err = xml.NewDecoder(resp.Body).Decode(&document)

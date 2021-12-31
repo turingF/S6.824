@@ -1,5 +1,5 @@
 // Sample program to show how unexported fields from an exported
-// struct type can't be accessed directly.
+// structs type can't be accessed directly.
 package main
 
 import (
@@ -17,7 +17,7 @@ func main() {
 	}
 
 	// ./example71.go:16: unknown entities.User field 'email' in
-	//                    struct literal
+	//                    structs literal
 
 	fmt.Printf("User: %v\n", u)
 }

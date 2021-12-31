@@ -1,5 +1,5 @@
 // Sample program to show how unexported fields from an exported
-// struct type can't be accessed directly.
+// structs type can't be accessed directly.
 package main
 
 import (
