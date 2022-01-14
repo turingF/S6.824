@@ -2,49 +2,24 @@ package main
 
 import (
 	"fmt"
-	"runtime"
-	"sync"
-	"time"
+	"os"
+	"os/signal"
 )
 
 /*
-  @Description:
+  @Description: catch os signal to go channel
 */
 
 func main() {
-	// alloc a processor to scheduler
-	runtime.GOMAXPROCS(runtime.NumCPU())
+	// init channel with buffer size:1
+	interrupt := make(chan os.Signal,1)
 
-	// same as wordcount
-	var wg sync.WaitGroup
-	wg.Add(2)
-	fmt.Println("Start Goroutines")
+	// detect os signal to channel
+	signal.Notify(interrupt,os.Interrupt)
 
-	go func (){
-		defer wg.Done()
-		for count :=0; count <3 ; count++ {
-			for char:= 'A';char < 'A' + 26; char++ {
-				fmt.Printf("%c ", char);
-				time.Sleep(100 * time.Millisecond)
-			}
-			println()
-		}
-	}()
-
-	go func (){
-		defer wg.Done()
-		for count :=0; count <3 ; count++ {
-			for char:= 'a';char < 'a' + 26; char++ {
-				fmt.Printf("%c ", char);
-				time.Sleep(100 * time.Millisecond)
-			}
-			println()
-		}
-	}()
-
-	fmt.Println("Waiting to Fininsh")
-	wg.Wait()
-
-	fmt.Println("Ending the program!")
-
+	select {
+	// if channel has a elem,catch it
+	case sign := <-interrupt :
+		fmt.Println("Catch signal :",sign)
+	}
 }

@@ -76,6 +76,5 @@ func (r *Runner) gotInterrupt() bool {
 		return true
 	default: /*select在加了default后不会被阻塞*/
 		return false
-
 	}
 }
