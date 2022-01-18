@@ -1,4 +1,4 @@
-package main
+package test
 
 import (
 	"fmt"
@@ -21,5 +21,6 @@ func main() {
 	// if channel has a elem,catch it
 	case sign := <-interrupt :
 		fmt.Println("Catch signal :",sign)
+		signal.Stop(interrupt) // close channel
 	}
 }
