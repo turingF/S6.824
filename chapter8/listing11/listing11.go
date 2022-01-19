@@ -22,6 +22,7 @@ func init() {
 		log.Fatalln("Failed to open error log file:", err)
 	}
 
+	// 通过log的New方法来实现自定义的logger
 	Trace = log.New(ioutil.Discard,
 		"TRACE: ",
 		log.Ldate|log.Ltime|log.Lshortfile)
